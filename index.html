@@ -92,75 +92,80 @@
         .cover-wrapper {
             position: relative;
             width: 90%;
+            max-width: 340px; /* Dipersempit sedikit agar pas mengikuti rasio frame */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* BINGKAI FRAME UTAMA (MENJADI JANGKAR POSISI TEKS) */
+        .cover-frame-container {
+            position: relative;
+            width: 100%;
+            height: auto;
+        }
+
+        .cover-png-frame {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 0 12px rgba(230, 201, 148, 0.25));
+        }
+
+        /* KONTEN TOTAL ABSOLUTE DI TENGAH FRAME */
+        .cover-center-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 82%; /* Membatasi teks agar tidak menabrak pinggiran frame kiri kanan */
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 20px 10px;
+            z-index: 15;
         }
 
-        /* Wadah Ornamen Atas Terpisah Agar Teks Inisial Tidak Terpotong */
+        /* Wadah Ornamen Atas & Bawah */
         .top-ornament-container {
             display: flex;
             justify-content: space-between;
             width: 100%;
-            max-width: 320px;
-            margin-bottom: -15px;
-            z-index: 12;
+            margin-bottom: 2px;
         }
-        .top-ornament-left { width: 45px; height: auto; }
-        .top-ornament-right { width: 45px; height: auto; }
-
-        .cover-png-frame {
-            width: 100%;
-            max-width: 310px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            filter: drop-shadow(0 0 12px rgba(230, 201, 148, 0.25));
-        }
-
-        .cover-bottom-content {
-            width: 100%;
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            z-index: 15;
-        }
-
-        .wedding-initial {
-            font-family: 'Cinzel', serif;
-            font-size: 2.5rem; 
-            font-weight: 700;
-            letter-spacing: 6px;
-            margin-bottom: 5px;
-            text-align: center;
-            width: 100%;
-        }
+        .top-ornament-left, .top-ornament-right { width: 38px; height: auto; }
 
         .cover-additional-container {
             display: flex;
             justify-content: space-between;
             width: 100%;
-            max-width: 320px;
-            margin-top: 20px;
+            margin-top: 15px;
         }
-        .cover-bottom-left { width: 45px; height: auto; }
-        .cover-bottom-right { width: 45px; height: auto; }
+        .cover-bottom-left, .cover-bottom-right { width: 38px; height: auto; }
+
+        .wedding-initial {
+            font-family: 'Cinzel', serif;
+            font-size: 2.3rem; 
+            font-weight: 700;
+            letter-spacing: 6px;
+            text-align: center;
+            width: 100%;
+        }
 
         /* TYPOGRAPHY */
-        .title-jawa { font-family: 'Cinzel', serif; font-size: 1.8rem; font-weight: 700; letter-spacing: 2px; }
+        .title-jawa { font-family: 'Cinzel', serif; font-size: 1.45rem; font-weight: 700; letter-spacing: 1.5px; }
         .font-aesthetic { font-family: 'Monsieur La Doulaise', cursive; font-size: 4.5rem; line-height: 1; font-weight: 400; margin: 5px 0; }
         .text-jawa-script { font-family: 'Marcellus', serif; font-size: 1.05rem; line-height: 1.7; color: #f0e6d2; }
 
         .btn-open {
-            margin-top: 15px; padding: 13px 35px; 
+            margin-top: 12px; 
+            padding: 11px 30px; 
             border: 1px solid transparent;
             border-image: var(--gold-gradient) 1;
             background: #000; color: #fcedc0;
             cursor: pointer; font-family: 'Cinzel', serif; font-weight: 700; 
-            letter-spacing: 2px; text-transform: uppercase; font-size: 0.75rem;
+            letter-spacing: 1.5px; text-transform: uppercase; font-size: 0.7rem;
             box-shadow: 0 5px 15px rgba(0,0,0,0.5);
             transition: all 0.3s ease;
         }
@@ -174,7 +179,6 @@
             transition: opacity 0.5s ease;
         }
         
-        /* SEMUA SEKSI MENGGUNAKAN bg1.jpg DENGAN OVERLAY GELAP AGAR TEKS KONTRAS */
         section { 
             position: relative;
             padding: 70px 24px; 
@@ -293,7 +297,7 @@
 
     <div class="mobile-container">
         
-        <!-- BINGKAI EMAS POJOK HALAMAN UTAMA (MENGGUNAKAN FILE ASET LOKAL) -->
+        <!-- BINGKAI EMAS POJOK HALAMAN UTAMA -->
         <img src="ornamen atas kiri.png" class="corner-frame top-left" alt="">
         <img src="ornamen atas kanan.png" class="corner-frame top-right" alt="">
         <img src="ornamen bawah kiri.png" class="corner-frame bottom-left" alt="">
@@ -302,44 +306,49 @@
         <!-- BACKSOUND AUDIO -->
         <audio id="weddingMusic" loop><source src="IMG-20260312-WA0010.mp3" type="audio/mpeg"></audio>
         
-        <!-- FLOATING MUSIC ICON PROFESSIONAL -->
+        <!-- FLOATING MUSIC ICON -->
         <div id="music-control" onclick="toggleMusic()"><i class="fa-solid fa-music"></i></div>
         <div id="toast"><i class="fa-solid fa-circle-check"></i> Nomor rekening berhasil disalin!</div>
 
         <!-- ========================================== -->
-        <!-- SEKSI COVER UTAMA (SINKRON FILE & INISIAL AMAN) -->
+        <!-- SEKSI COVER UTAMA (TEKS FIX DI TENGAH FRAME) -->
         <!-- ========================================== -->
         <div id="cover">
             <div class="cover-wrapper">
                 
-                <!-- ORNAMEN ATAS DIPISAH SEPENUHNYA AGAR INISIAL AMAN -->
-                <div class="top-ornament-container">
-                    <img src="ornamen atas kiri.png" class="top-ornament-left" alt="">
-                    <img src="ornamen atas kanan.png" class="top-ornament-right" alt="">
-                </div>
+                <div class="cover-frame-container">
+                    <!-- 1. JANGKAR BINGKAI FRAME UTAMA -->
+                    <img src="frame.png" class="cover-png-frame" alt="Frame Cover">
 
-                <!-- BINGKAI FRAME TENGAH (MENGGUNAKAN frame.png) -->
-                <img src="frame.png" class="cover-png-frame" alt="Frame Cover">
+                    <!-- 2. KONTEN BLOCK ABSOLUTE YANG DIKUNCI PAS DI TENGAH FRAME -->
+                    <div class="cover-center-content">
+                        
+                        <!-- Ornamen Atas -->
+                        <div class="top-ornament-container">
+                            <img src="ornamen atas kiri.png" class="top-ornament-left" alt="">
+                            <img src="ornamen atas kanan.png" class="top-ornament-right" alt="">
+                        </div>
 
-                <!-- AREA ISI DI BAWAH BINGKAI -->
-                <div class="cover-bottom-content">
-                    <div class="wedding-initial text-gold-gradient">T & K</div>
-                    
-                    <p style="letter-spacing: 3px; font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; font-family: 'Plus Jakarta Sans'; font-weight:600; margin-top: 5px;">The Wedding Of</p>
-                    
-                    <h1 class="title-jawa text-gold-gradient" style="font-size: 1.45rem; margin-top: 5px;">Targani & Kariyah</h1>
-                    
-                    <div style="width: 30px; height: 1.5px; background: var(--gold-gradient); margin: 12px auto;"></div>
-                    
-                    <p style="font-size: 0.7rem; color: var(--text-muted); font-family: 'Plus Jakarta Sans';">Special Invitation To:</p>
-                    <h2 id="guestName" style="font-family: 'Cinzel'; font-style: italic; margin: 3px 0 10px; font-size: 1.1rem; color: #fcedc0; letter-spacing: 1px;">Tamu Undangan</h2>
-                    
-                    <button class="btn-open" onclick="startInvitation()">Buka Undangan</button>
+                        <!-- Inisial Inti -->
+                        <div class="wedding-initial text-gold-gradient">T & K</div>
+                        
+                        <p style="letter-spacing: 2px; font-size: 0.6rem; color: var(--text-muted); text-transform: uppercase; font-family: 'Plus Jakarta Sans'; font-weight:600; margin-top: 2px;">The Wedding Of</p>
+                        
+                        <h1 class="title-jawa text-gold-gradient" style="margin-top: 3px;">Targani & Kariyah</h1>
+                        
+                        <div style="width: 25px; height: 1px; background: var(--gold-gradient); margin: 8px auto;"></div>
+                        
+                        <p style="font-size: 0.65rem; color: var(--text-muted); font-family: 'Plus Jakarta Sans';">Special Invitation To:</p>
+                        <h2 id="guestName" style="font-family: 'Cinzel'; font-style: italic; margin: 1px 0 8px; font-size: 1rem; color: #fcedc0; letter-spacing: 0.5px;">Tamu Undangan</h2>
+                        
+                        <button class="btn-open" onclick="startInvitation()">Buka Undangan</button>
 
-                    <!-- ORNAMEN BAWAH COVER -->
-                    <div class="cover-additional-container">
-                        <img src="ornamen bawah kiri.png" class="cover-bottom-left" alt="">
-                        <img src="ornamen bawah kanan.png" class="cover-bottom-right" alt="">
+                        <!-- Ornamen Bawah -->
+                        <div class="cover-additional-container">
+                            <img src="ornamen bawah kiri.png" class="cover-bottom-left" alt="">
+                            <img src="ornamen bawah kanan.png" class="cover-bottom-right" alt="">
+                        </div>
+                        
                     </div>
                 </div>
 
@@ -476,7 +485,7 @@
                 </div>
             </section>
 
-            <!-- SEKSI 6: GALERI ALBUM (SINKRON g1.jpg SAMPAI g6.jpg) -->
+            <!-- SEKSI 6: GALERI ALBUM -->
             <section>
                 <div class="glass-inner-card">
                     <div data-aos="zoom-in" data-aos-anchor-placement="top-bottom">
@@ -556,7 +565,7 @@
             <footer class="branding-footer">
                 <div class="wedding-initial text-gold-gradient" style="font-size: 1.1rem; letter-spacing: 2px; margin-bottom: 8px;">T & K</div>
                 <p class="branding-text">Exclusive Digital Invitation By</p>
-                <p class="brand-logo text-gold-gradient">Fathan Fotocopy</p>
+                <p class="brand-logo text-gold-gradient">Fathan Fotocopy</p> <!-- -->
             </footer>
 
         </div> <!-- /#main-content -->
@@ -569,7 +578,6 @@
     <script>
         Fancybox.bind("[data-fancybox]", {});
 
-        // Integrasi Engine Swiper 3D
         var swiper = new Swiper(".mySwiper", {
             effect: "coverflow",
             grabCursor: true,
@@ -588,7 +596,6 @@
             },
         });
 
-        // Ambil Nama Tamu Otomatis (?to=NamaTamu)
         const urlParams = new URLSearchParams(window.location.search);
         const guestName = urlParams.get('to');
         if (guestName) { 
@@ -596,7 +603,6 @@
             document.getElementById('nama_tamu').value = guestName; 
         }
 
-        // Fungsi Buka Undangan
         function startInvitation() {
             document.getElementById('cover').style.transform = 'translate( -50%, -100% )';
             const mainContent = document.getElementById('main-content');
@@ -635,7 +641,6 @@
             setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
         }
 
-        // Hitung Mundur Waktu Otomatis (Maret 2026)
         const targetDate = new Date("March 26, 2026 10:00:00").getTime();
         const countdownInterval = setInterval(function() {
             const now = new Date().getTime();
