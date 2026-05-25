@@ -18,7 +18,7 @@
     
     <style>
         :root {
-            --bg-warm-light: #161310; /* Cokelat hangat gelap premium */
+            --bg-warm-light: #161310; 
             --bg-card-glass: rgba(28, 24, 20, 0.75);
             --text-main: #fcf9f2;
             --text-muted: #d1c7bd;
@@ -47,7 +47,7 @@
         .mobile-container {
             width: 100%;
             max-width: 480px; 
-            background-color: var(--bg-warm-light); 
+            background-color: #1a1613; 
             position: relative;
             min-height: 100vh;
             box-shadow: 0 0 50px rgba(0,0,0,0.8);
@@ -67,7 +67,7 @@
         .corner-frame.bottom-left { bottom: 12px; left: 12px; }
         .corner-frame.bottom-right { bottom: 12px; right: 12px; }
 
-        /* --- SEKSI COVER (BACKGROUND FOTO DI COVER DEPAN) --- */
+        /* --- SEKSI COVER (DI-UPGRADE LEBIH CERAH & LAPANG) --- */
         #cover {
             position: fixed;
             top: 0;
@@ -79,7 +79,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(rgba(22, 19, 16, 0.65), rgba(22, 19, 16, 0.65)), url('bgdepan.jpg');
+            /* Opacity diturunkan ke 0.45 agar background tidak terlalu gelap */
+            background: linear-gradient(rgba(22, 19, 16, 0.45), rgba(22, 19, 16, 0.45)), url('bgdepan.jpg');
             background-size: cover;
             background-position: center;
             z-index: 1500;
@@ -96,7 +97,7 @@
             justify-content: center;
         }
 
-        /* Gambar Frame Kubah (frame.png) sebagai Background Center */
+        /* Gambar Frame Kubah (frame.png) */
         .kubah-image-bg {
             position: absolute;
             top: 0; left: 0;
@@ -107,7 +108,7 @@
             filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
         }
 
-        /* Mengunci konten tepat di tengah-tengah ruang kubah kosong */
+        /* Konten di dalam kubah menggunakan distribusi space-between yang longgar */
         .kubah-content-inside {
             position: absolute;
             top: 50%;
@@ -115,40 +116,34 @@
             transform: translate(-50%, -50%);
             z-index: 10;
             width: 80%;
-            height: 85%;
+            height: 75%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
             text-align: center;
-            padding: 30px 10px;
+            padding: 20px 0;
         }
 
-        /* Font Inisial Baru: Great Vibes (Kaligrafi Ramping, Anggun, Aman dari Bingkai) */
-        .initial-aesthetic {
-            font-family: 'Great Vibes', cursive;
-            font-size: 3.4rem;
-            line-height: 1;
-            font-weight: 400;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
-        }
-
+        /* Teks "The Wedding Of" di Atas Inisial */
         .cover-subtitle {
-            letter-spacing: 3px; 
-            font-size: 0.65rem; 
-            color: var(--text-muted); 
+            letter-spacing: 4px; 
+            font-size: 0.7rem; 
+            color: #fcedc0; 
             text-transform: uppercase; 
             font-family: 'Plus Jakarta Sans', sans-serif; 
             font-weight: 600;
-            margin-top: 5px;
+            margin-bottom: 0;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
 
-        .cover-title-mempelai {
-            font-family: 'Cinzel', serif;
-            font-size: 1.35rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            line-height: 1.4;
+        /* Font Inisial di Tengah (Plong & Besar tanpa tabrakan) */
+        .initial-aesthetic {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4.2rem;
+            line-height: 1;
+            font-weight: 400;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
         }
 
         .btn-open {
@@ -181,13 +176,12 @@
             justify-content: center;
         }
 
-        /* VARIASI BACKGROUND SEKSI (Tidak Semua Pakai Foto & Tidak Terlalu Gelap) */
-        .bg-clean-warm { background: #161310; } /* Bersih hangat elegan tanpa foto */
+        .bg-clean-warm { background: #161310; } 
         .bg-photo-soft { 
             background-image: linear-gradient(rgba(22, 19, 16, 0.72), rgba(22, 19, 16, 0.72)), url('bg1.jpg'); 
             background-size: cover;
             background-position: center;
-        } /* Menggunakan foto dengan filter transparan yang nyaman dimata */
+        } 
 
         .glass-inner-card {
             background: var(--bg-card-glass);
@@ -304,7 +298,7 @@
         <div id="toast"><i class="fa-solid fa-circle-check"></i> Berhasil disalin!</div>
 
         <!-- ========================================== -->
-        <!-- SEKSI COVER UTAMA (FIX POSITIONING & FONT) -->
+        <!-- SEKSI COVER UTAMA (HASIL FINAL UPDATE) -->
         <!-- ========================================== -->
         <div id="cover">
             <div class="cover-kubah-wrapper">
@@ -312,24 +306,24 @@
                 <!-- Gambar Utama Kubah Vertikal -->
                 <img src="frame.png" class="kubah-image-bg" alt="Frame Kubah">
 
-                <!-- Konten Terkunci Sempurna di Tengah Ruang Kubah -->
+                <!-- Konten Terkunci Sempurna di Dalam Ruang Kubah -->
                 <div class="kubah-content-inside">
                     
-                    <!-- Bagian Atas Kubah -->
+                    <!-- BAGIAN ATAS: Judul Undangan -->
+                    <div style="margin-top: 15px;">
+                        <p class="cover-subtitle">The Wedding Of</p>
+                        <div style="width: 25px; height: 1px; background: var(--gold-gradient); margin: 10px auto 0;"></div>
+                    </div>
+
+                    <!-- BAGIAN TENGAH: Fokus Inisial Saja (Plong & Megah) -->
                     <div>
                         <div class="initial-aesthetic text-gold-gradient">T & K</div>
-                        <p class="cover-subtitle">The Wedding Of</p>
                     </div>
 
-                    <!-- Bagian Tengah Kubah -->
-                    <div>
-                        <h1 class="cover-title-mempelai text-gold-gradient">TARGANI<br><span style="font-size: 1.1rem; font-family:'Marcellus'; color:#fcedc0; display:block; margin: 2px 0;">&</span>KARIYAH</h1>
-                    </div>
-
-                    <!-- Bagian Bawah Kubah -->
-                    <div style="width: 100%;">
-                        <p style="font-size: 0.65rem; color: var(--text-muted); font-family: 'Plus Jakarta Sans', sans-serif;">Special Invitation To:</p>
-                        <h2 id="guestName" style="font-family: 'Marcellus', serif; font-style: italic; margin: 4px 0 15px; font-size: 1.1rem; color: #fcedc0; letter-spacing: 0.5px;">Tamu Undangan</h2>
+                    <!-- BAGIAN BAWAH: Nama Tamu & Tombol Buka -->
+                    <div style="width: 100%; margin-bottom: 10px;">
+                        <p style="font-size: 0.65rem; color: #eedcb0; font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: 0.5px;">Special Invitation To:</p>
+                        <h2 id="guestName" style="font-family: 'Marcellus', serif; font-style: italic; margin: 4px 0 18px; font-size: 1.1rem; color: #fcedc0; letter-spacing: 0.5px;">Tamu Undangan</h2>
                         
                         <button class="btn-open" onclick="startInvitation()">Buka Undangan</button>
                     </div>
