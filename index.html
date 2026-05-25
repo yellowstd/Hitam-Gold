@@ -56,21 +56,21 @@
             border-image: var(--gold-gradient) 1;
         }
 
-        /* BINGKAI EMAS POJOK (FIXED ROTATION METHOD) */
+        /* BINGKAI EMAS FIXED CORNER SESUAI NAMA FILE ASET */
         .corner-frame {
             position: absolute;
-            width: 55px;
-            height: 55px;
+            width: 50px;
+            height: 50px;
             z-index: 99;
             pointer-events: none;
             opacity: 0.8;
         }
         .corner-frame.top-left { top: 12px; left: 12px; }
-        .corner-frame.top-right { top: 12px; right: 12px; transform: rotate(90deg); }
-        .corner-frame.bottom-left { bottom: 12px; left: 12px; transform: rotate(270deg); }
-        .corner-frame.bottom-right { bottom: 12px; right: 12px; transform: rotate(180deg); }
+        .corner-frame.top-right { top: 12px; right: 12px; }
+        .corner-frame.bottom-left { bottom: 12px; left: 12px; }
+        .corner-frame.bottom-right { bottom: 12px; right: 12px; }
 
-        /* --- SEKSI COVER --- */
+        /* --- SEKSI COVER (BACKGROUND: bgdepan.jpg) --- */
         #cover {
             position: fixed;
             top: 0;
@@ -82,7 +82,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(8, 8, 8, 0.99);
+            background: linear-gradient(rgba(5, 5, 5, 0.85), rgba(5, 5, 5, 0.85)), url('bgdepan.jpg');
+            background-size: cover;
+            background-position: center;
             z-index: 1500;
             transition: transform 1.2s cubic-bezier(0.85, 0, 0.15, 1);
         }
@@ -97,13 +99,13 @@
             padding: 20px 10px;
         }
 
-        /* Pemisahan Ornamen Atas agar Tidak Memotong Teks */
+        /* Wadah Ornamen Atas Terpisah Agar Teks Inisial Tidak Terpotong */
         .top-ornament-container {
             display: flex;
             justify-content: space-between;
             width: 100%;
             max-width: 320px;
-            margin-bottom: -10px;
+            margin-bottom: -15px;
             z-index: 12;
         }
         .top-ornament-left { width: 45px; height: auto; }
@@ -111,7 +113,7 @@
 
         .cover-png-frame {
             width: 100%;
-            max-width: 320px;
+            max-width: 310px;
             height: auto;
             display: block;
             margin: 0 auto;
@@ -129,20 +131,23 @@
 
         .wedding-initial {
             font-family: 'Cinzel', serif;
-            font-size: 2.4rem; /* Ukuran dioptimalkan */
+            font-size: 2.5rem; 
             font-weight: 700;
             letter-spacing: 6px;
             margin-bottom: 5px;
             text-align: center;
-            width: 100%; /* Memastikan ruang penuh agar tidak terpotong */
+            width: 100%;
         }
 
-        .cover-additional-img {
-            width: 110px;
-            height: auto;
-            margin-top: 15px;
-            display: block;
+        .cover-additional-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 320px;
+            margin-top: 20px;
         }
+        .cover-bottom-left { width: 45px; height: auto; }
+        .cover-bottom-right { width: 45px; height: auto; }
 
         /* TYPOGRAPHY */
         .title-jawa { font-family: 'Cinzel', serif; font-size: 1.8rem; font-weight: 700; letter-spacing: 2px; }
@@ -150,7 +155,7 @@
         .text-jawa-script { font-family: 'Marcellus', serif; font-size: 1.05rem; line-height: 1.7; color: #f0e6d2; }
 
         .btn-open {
-            margin-top: 20px; padding: 13px 35px; 
+            margin-top: 15px; padding: 13px 35px; 
             border: 1px solid transparent;
             border-image: var(--gold-gradient) 1;
             background: #000; color: #fcedc0;
@@ -169,6 +174,7 @@
             transition: opacity 0.5s ease;
         }
         
+        /* SEMUA SEKSI MENGGUNAKAN bg1.jpg DENGAN OVERLAY GELAP AGAR TEKS KONTRAS */
         section { 
             position: relative;
             padding: 70px 24px; 
@@ -177,20 +183,11 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            background-image: linear-gradient(rgba(8, 8, 8, 0.90), rgba(8, 8, 8, 0.90)), url('bg1.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-attachment: scroll; /* Optimal untuk mobile view */
         }
-
-        /* INTEGRASI BANYAK BACKGROUND FOTO DI SETIAP SEKSI ISI (Silakan ganti nama file sesuai aset Anda) */
-        .bg-section-quote { background-image: linear-gradient(rgba(5, 5, 5, 0.88), rgba(5, 5, 5, 0.88)), url('foto-bg-quote.jpg'); }
-        .bg-section-mempelai { background-image: linear-gradient(rgba(6, 6, 6, 0.92), rgba(6, 6, 6, 0.92)), url('foto-bg-mempelai.jpg'); }
-        .bg-section-story { background-image: linear-gradient(rgba(5, 5, 5, 0.9), rgba(5, 5, 5, 0.9)), url('foto-bg-story.jpg'); }
-        .bg-section-waktu { background-image: linear-gradient(rgba(6, 6, 6, 0.92), rgba(6, 6, 6, 0.92)), url('foto-bg-waktu.jpg'); }
-        .bg-section-lokasi { background-image: linear-gradient(rgba(5, 5, 5, 0.88), rgba(5, 5, 5, 0.88)), url('foto-bg-lokasi.jpg'); }
-        .bg-section-galeri { background-image: linear-gradient(rgba(4, 4, 4, 0.94), rgba(4, 4, 4, 0.94)), url('foto-bg-galeri.jpg'); }
-        .bg-section-gift { background-image: linear-gradient(rgba(5, 5, 5, 0.9), rgba(5, 5, 5, 0.9)), url('foto-bg-gift.jpg'); }
 
         .glass-inner-card {
             background: var(--glass-black);
@@ -203,7 +200,7 @@
             overflow: hidden;
         }
         
-        /* RE-DESIGN MODERN MEMPELAI (ARCH LOOK) */
+        /* FRAME MEMPELAI MODEREN (ARCH LOOK) */
         .mempelai-wrapper {
             margin: 30px 0;
             display: flex;
@@ -296,40 +293,39 @@
 
     <div class="mobile-container">
         
-        <!-- BINGKAI EMAS POJOK HALAMAN UTAMA -->
-        <img src="ornamen-sudut-emas.png" class="corner-frame top-left" alt="">
-        <img src="ornamen-sudut-emas.png" class="corner-frame top-right" alt="">
-        <img src="ornamen-sudut-emas.png" class="corner-frame bottom-left" alt="">
-        <img src="ornamen-sudut-emas.png" class="corner-frame bottom-right" alt="">
+        <!-- BINGKAI EMAS POJOK HALAMAN UTAMA (MENGGUNAKAN FILE ASET LOKAL) -->
+        <img src="ornamen atas kiri.png" class="corner-frame top-left" alt="">
+        <img src="ornamen atas kanan.png" class="corner-frame top-right" alt="">
+        <img src="ornamen bawah kiri.png" class="corner-frame bottom-left" alt="">
+        <img src="ornamen bawah kanan.png" class="corner-frame bottom-right" alt="">
         
         <!-- BACKSOUND AUDIO -->
-        <audio id="weddingMusic" loop><source src="backsound.mp3" type="audio/mpeg"></audio>
+        <audio id="weddingMusic" loop><source src="IMG-20260312-WA0010.mp3" type="audio/mpeg"></audio>
         
         <!-- FLOATING MUSIC ICON PROFESSIONAL -->
         <div id="music-control" onclick="toggleMusic()"><i class="fa-solid fa-music"></i></div>
         <div id="toast"><i class="fa-solid fa-circle-check"></i> Nomor rekening berhasil disalin!</div>
 
         <!-- ========================================== -->
-        <!-- SEKSI COVER UTAMA FIX (INISIAL AMAN) -->
+        <!-- SEKSI COVER UTAMA (SINKRON FILE & INISIAL AMAN) -->
         <!-- ========================================== -->
         <div id="cover">
             <div class="cover-wrapper">
                 
-                <!-- CONTAINER ORNAMEN ATAS DIPISAH AGAR TIDAK MEMOTONG TEKS -->
+                <!-- ORNAMEN ATAS DIPISAH SEPENUHNYA AGAR INISIAL AMAN -->
                 <div class="top-ornament-container">
-                    <img src="ornamen-kiri.png" class="top-ornament-left" alt="">
-                    <img src="ornamen-kanan.png" class="top-ornament-right" alt="">
+                    <img src="ornamen atas kiri.png" class="top-ornament-left" alt="">
+                    <img src="ornamen atas kanan.png" class="top-ornament-right" alt="">
                 </div>
 
-                <!-- 1. BINGKAI PNG UTAMA -->
-                <img src="images-(1).png" class="cover-png-frame" alt="Frame Cover">
+                <!-- BINGKAI FRAME TENGAH (MENGGUNAKAN frame.png) -->
+                <img src="frame.png" class="cover-png-frame" alt="Frame Cover">
 
-                <!-- 2. AREA BAGIAN BAWAH FRAME (KONTEN TEKS & TOMBOL) -->
+                <!-- AREA ISI DI BAWAH BINGKAI -->
                 <div class="cover-bottom-content">
                     <div class="wedding-initial text-gold-gradient">T & K</div>
-                    <img src="covergunungan.png" style="width: 38px; margin: 5px 0;" alt="Gunungan">
                     
-                    <p style="letter-spacing: 3px; font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; font-family: 'Plus Jakarta Sans'; font-weight:600;">The Wedding Of</p>
+                    <p style="letter-spacing: 3px; font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; font-family: 'Plus Jakarta Sans'; font-weight:600; margin-top: 5px;">The Wedding Of</p>
                     
                     <h1 class="title-jawa text-gold-gradient" style="font-size: 1.45rem; margin-top: 5px;">Targani & Kariyah</h1>
                     
@@ -340,8 +336,11 @@
                     
                     <button class="btn-open" onclick="startInvitation()">Buka Undangan</button>
 
-                    <!-- 3. TEMPAT GAMBAR TAMBAHAN DI BAWAHNYA -->
-                    <img src="gambar-tambahan-bawah.png" class="cover-additional-img" alt="">
+                    <!-- ORNAMEN BAWAH COVER -->
+                    <div class="cover-additional-container">
+                        <img src="ornamen bawah kiri.png" class="cover-bottom-left" alt="">
+                        <img src="ornamen bawah kanan.png" class="cover-bottom-right" alt="">
+                    </div>
                 </div>
 
             </div>
@@ -353,7 +352,7 @@
         <div id="main-content">
             
             <!-- SEKSI 1: QUOTE -->
-            <section class="bg-section-quote">
+            <section>
                 <div class="glass-inner-card">
                     <div class="animation-step" data-aos="zoom-in" data-aos-anchor-placement="top-bottom">
                         <div class="wedding-initial text-gold-gradient" style="font-size: 1.5rem;">T & K</div>
@@ -373,7 +372,7 @@
             </section>
 
             <!-- SEKSI 2: PROFIL MEMPELAI -->
-            <section class="bg-section-mempelai">
+            <section>
                 <div class="glass-inner-card">
                     <div data-aos="zoom-in" data-aos-anchor-placement="top-bottom">
                         <h2 class="title-jawa text-gold-gradient">Mempelai</h2>
@@ -389,23 +388,21 @@
                         <div class="mempelai-wrapper" data-aos="fade-right" data-aos-delay="300" data-aos-anchor-placement="top-bottom">
                             <div class="mempelai-frame-container">
                                 <div class="arch-shadow-layer"></div>
-                                <img src="mempelai1.jpg" alt="Targani" class="photo-mempelai-arch">
+                                <img src="mempelaipria.jpg" alt="Targani" class="photo-mempelai-arch">
                             </div>
                             <h3 class="font-aesthetic text-gold-gradient">Targani</h3>
                             <p style="font-size: 0.75rem; color: var(--text-muted); font-family:'Plus Jakarta Sans';">Putra Dari:</p>
                             <p style="font-weight: 600; font-size: 0.9rem; color: #eedcb0; margin-top: 2px;">Bapak Sudin & Ibu Carnesih</p>
                         </div>
 
-                        <!-- ORNAMEN WAYANG PEMBATAS -->
-                        <div data-aos="zoom-in" data-aos-delay="400" data-aos-anchor-placement="top-bottom" style="margin: 5px 0;">
-                            <img src="wayang-kembar-tengah.png" style="width: 50px; opacity: 0.75;" alt="">
-                        </div>
+                        <!-- SEPARATOR TENGAH -->
+                        <div style="width: 40px; height: 1px; background: rgba(230,201,148,0.3); margin: 10px auto;"></div>
 
                         <!-- MEMPELAI WANITA -->
                         <div class="mempelai-wrapper" data-aos="fade-left" data-aos-delay="500" data-aos-anchor-placement="top-bottom">
                             <div class="mempelai-frame-container">
                                 <div class="arch-shadow-layer"></div>
-                                <img src="mempelai2.jpg" alt="Kariyah" class="photo-mempelai-arch">
+                                <img src="mempelaiwanita.jpg" alt="Kariyah" class="photo-mempelai-arch">
                             </div>
                             <h3 class="font-aesthetic text-gold-gradient">Kariyah</h3>
                             <p style="font-size: 0.75rem; color: var(--text-muted); font-family:'Plus Jakarta Sans';">Putri Dari:</p>
@@ -416,7 +413,7 @@
             </section>
 
             <!-- SEKSI 3: KISAH CINTA -->
-            <section class="bg-section-story">
+            <section>
                 <div class="glass-inner-card">
                     <div data-aos="zoom-in" data-aos-anchor-placement="top-bottom">
                         <h2 class="title-jawa text-gold-gradient">Kisah Kita</h2>
@@ -440,7 +437,7 @@
             </section>
 
             <!-- SEKSI 4: WAKTU & COUNTDOWN -->
-            <section class="bg-section-waktu">
+            <section>
                 <div class="glass-inner-card">
                     <div data-aos="zoom-in" data-aos-anchor-placement="top-bottom">
                         <h2 class="title-jawa text-gold-gradient">Waktu</h2>
@@ -459,7 +456,7 @@
             </section>
 
             <!-- SEKSI 5: LOKASI MAP -->
-            <section class="bg-section-lokasi">
+            <section>
                 <div class="glass-inner-card">
                     <div data-aos="zoom-in" data-aos-anchor-placement="top-bottom">
                         <h2 class="title-jawa text-gold-gradient">Lokasi</h2>
@@ -479,8 +476,8 @@
                 </div>
             </section>
 
-            <!-- SEKSI 6: GALERI ALBUM SWIPER CAROUSEL -->
-            <section class="bg-section-galeri">
+            <!-- SEKSI 6: GALERI ALBUM (SINKRON g1.jpg SAMPAI g6.jpg) -->
+            <section>
                 <div class="glass-inner-card">
                     <div data-aos="zoom-in" data-aos-anchor-placement="top-bottom">
                         <h2 class="title-jawa text-gold-gradient">Galeri</h2>
@@ -489,16 +486,22 @@
                     <div class="swiper mySwiper" data-aos="fade-up" data-aos-delay="300" data-aos-anchor-placement="top-bottom">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <a href="galeri1.jpg" data-fancybox="gallery"><img src="galeri1.jpg" alt="Foto 1"></a>
+                                <a href="g1.jpg" data-fancybox="gallery"><img src="g1.jpg" alt="Foto 1"></a>
                             </div>
                             <div class="swiper-slide">
-                                <a href="galeri2.jpg" data-fancybox="gallery"><img src="galeri2.jpg" alt="Foto 2"></a>
+                                <a href="g2.jpg" data-fancybox="gallery"><img src="g2.jpg" alt="Foto 2"></a>
                             </div>
                             <div class="swiper-slide">
-                                <a href="galeri3.jpg" data-fancybox="gallery"><img src="galeri3.jpg" alt="Foto 3"></a>
+                                <a href="g3.jpg" data-fancybox="gallery"><img src="g3.jpg" alt="Foto 3"></a>
                             </div>
                             <div class="swiper-slide">
-                                <a href="galeri4.jpg" data-fancybox="gallery"><img src="galeri4.jpg" alt="Foto 4"></a>
+                                <a href="g4.jpg" data-fancybox="gallery"><img src="g4.jpg" alt="Foto 4"></a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="g5.jpg" data-fancybox="gallery"><img src="g5.jpg" alt="Foto 5"></a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="g6.jpg" data-fancybox="gallery"><img src="g6.jpg" alt="Foto 6"></a>
                             </div>
                         </div>
                         <div class="swiper-pagination"></div>
@@ -507,7 +510,7 @@
             </section>
 
             <!-- SEKSI 7: GIFT & RSVP -->
-            <section class="bg-section-gift" style="min-height: auto;">
+            <section style="min-height: auto;">
                 <div class="glass-inner-card">
                     <div data-aos="zoom-in" data-aos-anchor-placement="top-bottom">
                         <h2 class="title-jawa text-gold-gradient">Tanda Kasih</h2>
